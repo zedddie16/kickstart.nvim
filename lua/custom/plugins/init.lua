@@ -4,14 +4,10 @@
 -- See the kickstart.nvim README for more information
 return {
   {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
+    'goolord/alpha-nvim',
     config = function()
-      require('dashboard').setup {
-        -- config
-      }
+      require('alpha').setup(require('alpha.themes.startify').config) --alpha.themes.dashboard for for dashboard :'
     end,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } },
   },
   {
     'vyfor/cord.nvim',
