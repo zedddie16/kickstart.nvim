@@ -18,6 +18,7 @@ return {
   },
   -- my themes //>.<//
   { 'ellisonleao/gruvbox.nvim' },
+  { 'water-sucks/darkrose.nvim' },
   { 'catppuccin/nvim', name = 'catppuccin' },
   { 'rose-pine/neovim', name = 'rose-pine' },
   { 'folke/tokyonight.nvim' },
