@@ -831,15 +831,15 @@ require('lazy').setup({
 
     -- Player (Spotify) binds
 
-    vim.keymap.set('n', '<leader>ssp', function()
+    vim.keymap.set('n', '<leader>psp', function()
       vim.fn.system 'playerctl play-pause'
-    end, { noremap = true, silent = true, desc = '[S]potify [P]lay' }), -- Play/Pause
-    vim.keymap.set('n', '<leader>ssn', function()
+    end, { noremap = true, silent = true, desc = '[P]layer [S]potify [P]lay' }),
+    vim.keymap.set('n', '<leader>psn', function()
       vim.fn.system 'playerctl next'
-    end, { noremap = true, silent = true, desc = '[S]potify [N]ext' }), -- Skip
-    vim.keymap.set('n', '<leader>ssv', function()
+    end, { noremap = true, silent = true, desc = '[P]layer [S]potify [N]ext' }),
+    vim.keymap.set('n', '<leader>psv', function()
       vim.fn.system 'playerctl previous'
-    end, { noremap = true, silent = true, desc = '[S]potify [P]revious' }), -- Previous
+    end, { noremap = true, silent = true, desc = '[S]potify [P]revious' }),
 
     --vim.keymap.set('n', '<leader>ssp', ':silent !playerctl play-pause<CR>', { noremap = true, silent = true, desc = '[S]potify [P]lay' }),
     --vim.keymap.set('n', '<leader>ssn', ':silent !playerctl next<CR>', { noremap = true, silent = true, desc = '[S]potify [N]ext' }),
