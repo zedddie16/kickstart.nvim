@@ -4,6 +4,11 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+  {
     'goolord/alpha-nvim',
     config = function()
       require('alpha').setup(require('alpha.themes.startify').config) --alpha.themes.dashboard for for dashboard :'
