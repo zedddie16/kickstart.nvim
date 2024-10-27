@@ -176,10 +176,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -404,7 +404,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      -- vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
@@ -440,19 +440,19 @@ require('lazy').setup({
     end,
   },
   -- my setup for neo-tree
-    -- LSP Plugins
-    {
-      -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-      -- used for completion, annotations and signatures of Neovim apis
-      'folke/lazydev.nvim',
-      ft = 'lua',
-      opts = {
-        library = {
-          -- Load luvit types when the `vim.uv` word is found
-          { path = 'luvit-meta/library', words = { 'vim%.uv' } },
-        },
+  -- LSP Plugins
+  {
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- used for completion, annotations and signatures of Neovim apis
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
       },
     },
+  },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
     -- Main LSP Configuration
@@ -827,7 +827,27 @@ require('lazy').setup({
       }
     end,
   },
+  {
 
+    -- Player (Spotify) binds
+
+    vim.keymap.set('n', '<leader>ssp', function()
+      vim.fn.system 'playerctl play-pause'
+    end, { noremap = true, silent = true, desc = '[S]potify [P]lay' }), -- Play/Pause
+    vim.keymap.set('n', '<leader>ssn', function()
+      vim.fn.system 'playerctl next'
+    end, { noremap = true, silent = true, desc = '[S]potify [N]ext' }), -- Skip
+    vim.keymap.set('n', '<leader>ssv', function()
+      vim.fn.system 'playerctl previous'
+    end, { noremap = true, silent = true, desc = '[S]potify [P]revious' }), -- Previous
+
+    --vim.keymap.set('n', '<leader>ssp', ':silent !playerctl play-pause<CR>', { noremap = true, silent = true, desc = '[S]potify [P]lay' }),
+    --vim.keymap.set('n', '<leader>ssn', ':silent !playerctl next<CR>', { noremap = true, silent = true, desc = '[S]potify [N]ext' }),
+    --vim.keymap.set('n', '<leader>ssv', ':silent !playerctl previous<CR>', { noremap = true, silent = true, desc = '[S]potify [P]revious' }),
+    -- Descriptions can be added using `vim.keymap.set`
+    --vim.keymap.set('n', '<leader>ssp', ':!playerctl play-pause<CR>', { noremap = true, silent = true, desc = '[S]potify [P]lay/[P]ause' }), -- Play/Pause
+    --vim.keymap.set('n', '<leader>ssn', ':!playerctl next<CR>', { noremap = true, silent = true, desc = '[S]potify [N]ext' }), -- Skip
+  },
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
