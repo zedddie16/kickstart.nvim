@@ -31,10 +31,21 @@ return {
   { 'rose-pine/neovim', name = 'rose-pine' },
   { 'folke/tokyonight.nvim' },
   { dir = '~/dev/themes/pastelpink/' },
-  -- harpoon2
-  --  {
-  --    'ThePrimeagen/harpoon',
-  --    branch = 'harpoon2',
-  --    dependencies = { 'nvim-lua/plenary.nvim' },
-  --  },
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end,
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('toggleterm').setup {
+        direction = 'horizontal', -- or 'vertical', 'float', etc.
+      }
+      vim.keymap.set('n', '<leader>tt', function()
+        require('toggleterm').toggle(1)
+      end, { desc = 'Open ToggleTerm' })
+    end,
+  },
 }
