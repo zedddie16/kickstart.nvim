@@ -16,6 +16,14 @@ return {
     event = 'VeryLazy',
     opts = {}, -- calls require('cord').setup()
   },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'neovim/nvim-lspconfig',
+    },
+    opts = {},
+  },
   -- my themes //>.<//
   { 'ellisonleao/gruvbox.nvim' },
   { 'water-sucks/darkrose.nvim' },
@@ -23,4 +31,10 @@ return {
   { 'rose-pine/neovim', name = 'rose-pine' },
   { 'folke/tokyonight.nvim' },
   { dir = '~/dev/themes/pastelpink/' },
+  -- harpoon2
+  --  {
+  --    'ThePrimeagen/harpoon',
+  --    branch = 'harpoon2',
+  --    dependencies = { 'nvim-lua/plenary.nvim' },
+  --  },
 }
