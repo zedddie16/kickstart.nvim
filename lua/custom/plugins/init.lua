@@ -1,8 +1,8 @@
 return {
   {
     'mrcjkb/rustaceanvim',
-    version = '^5', -- Recommended
-    lazy = false, -- This plugin is already lazy
+    version = '^5',
+    lazy = false,
   },
   {
     'goolord/alpha-nvim',
@@ -14,7 +14,7 @@ return {
     'vyfor/cord.nvim',
     build = './build || .\\build',
     event = 'VeryLazy',
-    opts = {}, -- calls require('cord').setup()
+    opts = {},
   },
   {
     'pmizio/typescript-tools.nvim',
