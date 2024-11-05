@@ -46,6 +46,8 @@ return {
       vim.keymap.set('n', '<leader>tt', function()
         require('toggleterm').toggle(1)
       end, { desc = 'Open ToggleTerm' })
+
+      vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
     end,
   },
 }
