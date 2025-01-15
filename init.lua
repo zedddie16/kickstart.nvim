@@ -4,6 +4,12 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+if vim.g.neovide == true then
+  vim.api.nvim_set_keymap('n', '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>', { silent = true })
+  vim.api.nvim_set_keymap('n', '<C-0>', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>', { silent = true })
+  vim.api.nvim_set_keymap('n', '<A-0>', ':lua vim.g.neovide_scale_factor = 1<CR>', { silent = true })
+end
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
