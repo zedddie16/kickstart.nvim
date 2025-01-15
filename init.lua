@@ -4,10 +4,23 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- some neovide settings :з
 if vim.g.neovide == true then
   vim.api.nvim_set_keymap('n', '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>', { silent = true })
   vim.api.nvim_set_keymap('n', '<C-0>', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>', { silent = true })
   vim.api.nvim_set_keymap('n', '<A-0>', ':lua vim.g.neovide_scale_factor = 1<CR>', { silent = true })
+
+  vim.g.neovide_cursor_vfx_mode = 'wireframe' --wireframe ripple sonicboom pixiedust torpedo railgun
+
+  vim.g.neovide_cursor_trail_size = 0.8
+
+  vim.g.neovide_cursor_antialiasing = true
+
+  vim.g.neovide_cursor_animate_in_insert_mode = true
+
+  vim.g.neovide_cursor_animate_command_line = true
+
+  vim.g.neovide_cursor_unfocused_outline_width = 0.125
 end
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
