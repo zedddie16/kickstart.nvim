@@ -14,6 +14,7 @@ return {
     filesystem = {
       filtered_items = {
         hide_hidden = false,
+        hide_gitignored = false,
         hide_dotfiles = false,
       },
       window = {
