@@ -15,9 +15,16 @@ return {
   },
   {
     'vyfor/cord.nvim',
-    build = './build || .\\build',
-    event = 'VeryLazy',
-    opts = {},
+    build = 'Cord update',
+    opts = function()
+      return {
+        display = {
+          theme = 'catppuccin',
+          flavor = 'dark',
+          swap_icons = false,
+        },
+      }
+    end,
   },
   {
     'pmizio/typescript-tools.nvim',
