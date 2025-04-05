@@ -1,5 +1,8 @@
 return {
   {
+    'ThePrimeagen/vim-be-good',
+  },
+  {
     'mrcjkb/rustaceanvim',
     version = '^5',
     lazy = false,

@@ -349,7 +349,7 @@ require('lazy').setup({
       -- my custom binds
       vim.keymap.set('n', '<leader>st', builtin.colorscheme, { desc = '[S]earch [T]hemes' })
 
-      -- Slightly advanced example of overriding default behavior and theme
+      -- Slightly advanced example of overriding default behavior and themescheme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -782,7 +782,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'material-deep-ocean'
 
       -- You can configure highlights by doing something like:
       -- vim.cmd.hi 'Comment gui=none'
