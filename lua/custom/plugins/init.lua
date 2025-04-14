@@ -4,9 +4,28 @@ return {
   },
   {
     'mrcjkb/rustaceanvim',
-    version = '^5',
-    lazy = false,
+    version = '^6', -- Recommended
+    lazy = false, -- This plugin is already lazy
   },
+  -- {
+  --
+  --   'mrcjkb/rustaceanvim',
+  --   ft = { 'rust' }, -- Load only for Rust files
+  --   config = function()
+  --     vim.g.rustaceanvim = {
+  --       server = {
+  --         on_attach = function(client, bufnr)
+  --           -- Optional: Add custom keymaps here, e.g., for hover or goto definition
+  --         end,
+  --       },
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^5',
+  --   lazy = false,
+  -- },
   {
     'goolord/alpha-nvim',
     config = function()
@@ -66,7 +85,8 @@ return {
   { 'rebelot/kanagawa.nvim' },
   { 'mhartington/oceanic-next' },
   { 'sainnhe/everforest' },
-  { dir = '~/dev/themes/pastelpink/' },
+  -- { dir = '~/dev/themes/pastelpink/' },
+  { 'zedddie16/pastelpink' },
   {
     'numToStr/Comment.nvim',
     config = function()
