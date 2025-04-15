@@ -7,31 +7,47 @@ return {
     version = '^6', -- Recommended
     lazy = false, -- This plugin is already lazy
   },
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        theme = 'doom',
+        -- config = {
+        --   header = {}, --your header
+        --   center = {
+        --     {
+        --       icon = ' ',
+        --       icon_hl = 'Title',
+        --       desc = 'Find File           ',
+        --       desc_hl = 'String',
+        --       key = 'b',
+        --       keymap = 'SPC f f',
+        --       key_hl = 'Number',
+        --       key_format = ' %s', -- remove default surrounding `[]`
+        --       action = 'lua print(2)',
+        --     },
+        --     {
+        --       icon = ' ',
+        --       desc = 'Find Dotfiles',
+        --       key = 'f',
+        --       keymap = 'SPC f d',
+        --       key_format = ' %s', -- remove default surrounding `[]`
+        --       action = 'lua print(3)',
+        --     },
+        --   },
+        --   footer = {}, --your footer
+        -- },
+      }
+    end,
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } },
+  },
   -- {
-  --
-  --   'mrcjkb/rustaceanvim',
-  --   ft = { 'rust' }, -- Load only for Rust files
+  --   'goolord/alpha-nvim',
   --   config = function()
-  --     vim.g.rustaceanvim = {
-  --       server = {
-  --         on_attach = function(client, bufnr)
-  --           -- Optional: Add custom keymaps here, e.g., for hover or goto definition
-  --         end,
-  --       },
-  --     }
+  --     require('alpha').setup(require('alpha.themes.dashboard').config) -- can be dashboard or startify :'
   --   end,
   -- },
-  -- {
-  --   'mrcjkb/rustaceanvim',
-  --   version = '^5',
-  --   lazy = false,
-  -- },
-  {
-    'goolord/alpha-nvim',
-    config = function()
-      require('alpha').setup(require('alpha.themes.startify').config) --alpha.themes.dashboard for for dashboard :'
-    end,
-  },
   {
     'vyfor/cord.nvim',
     build = 'Cord update',
@@ -66,7 +82,7 @@ return {
     },
     opts = {},
   },
-  -- my themes //>.<//
+
   { 'ellisonleao/gruvbox.nvim' },
   { 'water-sucks/darkrose.nvim' },
   { 'catppuccin/nvim', name = 'catppuccin' },
@@ -85,7 +101,6 @@ return {
   { 'rebelot/kanagawa.nvim' },
   { 'mhartington/oceanic-next' },
   { 'sainnhe/everforest' },
-  -- { dir = '~/dev/themes/pastelpink/' },
   { 'zedddie16/pastelpink' },
   {
     'numToStr/Comment.nvim',
@@ -97,12 +112,12 @@ return {
     'akinsho/toggleterm.nvim',
     config = function()
       require('toggleterm').setup {
-        direction = 'horizontal', -- or 'vertical', 'float', etc.
+        direction = 'float', -- or 'vertical', 'float', 'horizontal'.
       }
       vim.keymap.set('n', '<leader>tt', function()
         require('toggleterm').toggle(1)
       end, { desc = 'Open ToggleTerm' })
-
+      -- fast esc from terminal
       vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
     end,
   },
