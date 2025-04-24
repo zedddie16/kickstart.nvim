@@ -1056,6 +1056,8 @@ require('lazy').setup {
   require 'my_plugins.harpoon2',
 
   require 'my_plugins.themes',
+  require 'my_plugins.linters',
+  require 'my_plugins.starters',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
