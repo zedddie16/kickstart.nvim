@@ -29,12 +29,6 @@ return {
     end,
   },
   {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end,
-  },
-  {
     'akinsho/toggleterm.nvim',
     config = function()
       require('toggleterm').setup {
