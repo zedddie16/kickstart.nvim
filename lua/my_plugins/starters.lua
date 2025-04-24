@@ -38,6 +38,6 @@ return
 {
   'goolord/alpha-nvim',
   config = function()
-    require('alpha').setup(require('alpha.themes.dashboard').config) -- can be dashboard or startify :'
+    require('alpha').setup(require('alpha.themes.startify').config) -- can be dashboard or startify :'
   end,
 }
