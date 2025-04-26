@@ -97,6 +97,22 @@ vim.opt.scrolloff = 21
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
+-- [[ ugly background fix ]]
+vim.api.nvim_create_autocmd({ 'UIEnter', 'ColorScheme' }, {
+  callback = function()
+    local normal = vim.api.nvim_get_hl(0, { name = 'Normal' })
+    if normal.bg then
+      io.write(string.format('\027]11;#%06x\027\\', normal.bg))
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('UILeave', {
+  callback = function()
+    io.write '\027]111\027\\'
+  end,
+})
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -1053,6 +1069,7 @@ require('lazy').setup {
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  -- require 'my_plugins.set_term_bg',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
