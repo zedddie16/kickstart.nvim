@@ -116,6 +116,8 @@ vim.api.nvim_create_autocmd('UILeave', {
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- cube cursor cuz its pretty ngl
+vim.opt.guicursor = 'a:block'
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -1066,6 +1068,7 @@ require('lazy').setup {
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
+
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
