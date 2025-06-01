@@ -1,3 +1,5 @@
+`sudo rm /usr/share/nvim/runtime/colors/*.vim`
+to rm ugly default colorschemes
 # kickstart.nvim
 
 ## Introduction
