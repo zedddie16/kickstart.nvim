@@ -8,9 +8,9 @@ return {
     opts = function()
       return {
         display = {
-          theme = 'catppuccin',
-          flavor = 'dark',
-          swap_icons = false,
+          -- theme = 'catppuccin',
+          -- flavor = 'dark',
+          -- swap_icons = false,
         },
         timestamp = {
           enabled = true,
