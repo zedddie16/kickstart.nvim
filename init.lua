@@ -4,9 +4,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- jk as ESC
-vim.keymap.set('i', 'jk', '<esc>')
-vim.keymap.set('i', 'kj', '<esc>')
 -- some neovide settings :з
 if vim.g.neovide == true then
   vim.api.nvim_set_keymap('n', '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>', { silent = true })
@@ -769,137 +766,6 @@ require('lazy').setup {
       },
       'folke/lazydev.nvim',
     },
-    -- <<<<<<< HEAD
-    --     -- config = function()
-    --     --   -- See `:help cmp`
-    --     --   local cmp = require 'cmp'
-    --     --   local luasnip = require 'luasnip'
-    --     --   luasnip.config.setup {}
-    --     --
-    --     --   cmp.setup {
-    --     --     snippet = {
-    --     --       expand = function(args)
-    --     --         luasnip.lsp_expand(args.body)
-    --     --       end,
-    --     --     },
-    --     --     completion = { completeopt = 'menu,menuone,noinsert' },
-    --     --
-    --     --     -- For an understanding of why these mappings were
-    --     --     -- chosen, you will need to read `:help ins-completion`
-    --     --     --
-    --     --     -- No, but seriously. Please read `:help ins-completion`, it is really good!
-    --     --     mapping = cmp.mapping.preset.insert {
-    --     --       -- Select the [n]ext item
-    --     --       ['<C-n>'] = cmp.mapping.select_next_item(),
-    --     --       -- Select the [p]revious item
-    --     --       ['<C-p>'] = cmp.mapping.select_prev_item(),
-    --     --
-    --     --       -- Scroll the documentation window [b]ack / [f]orward
-    --     --       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    --     --       ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    --     --
-    --     --       -- Accept ([y]es) the completion.
-    --     --       --  This will auto-import if your LSP supports it.
-    --     --       --  This will expand snippets if the LSP sent a snippet.
-    --     --       ['<C-y>'] = cmp.mapping.confirm { select = true },
-    --     --
-    --     --       -- If you prefer more traditional completion keymaps,
-    --     --       -- you can uncomment the following lines
-    --     --       --['<CR>'] = cmp.mapping.confirm { select = true },
-    --     --       --['<Tab>'] = cmp.mapping.select_next_item(),
-    --     --       --['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    --     --
-    --     --       -- Manually trigger a completion from nvim-cmp.
-    --     --       --  Generally you don't need this, because nvim-cmp will display
-    --     --       --  completions whenever it has completion options available.
-    --     --       ['<C-Space>'] = cmp.mapping.complete {},
-    --     --
-    --     --       -- Think of <c-l> as moving to the right of your snippet expansion.
-    --     --       --  So if you have a snippet that's like:
-    --     --       --  function $name($args)
-    --     --       --    $body
-    --     --       --  end
-    --     --       --
-    --     --       -- <c-l> will move you to the right of each of the expansion locations.
-    --     --       -- <c-h> is similar, except moving you backwards.
-    --     --       ['<C-l>'] = cmp.mapping(function()
-    --     --         if luasnip.expand_or_locally_jumpable() then
-    --     --           luasnip.expand_or_jump()
-    --     --         end
-    --     --       end, { 'i', 's' }),
-    --     --       ['<C-h>'] = cmp.mapping(function()
-    --     --         if luasnip.locally_jumpable(-1) then
-    --     --           luasnip.jump(-1)
-    --     --         end
-    --     --       end, { 'i', 's' }),
-    --     --
-    --     --       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-    --     --       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
-    --     --     },
-    --     --     sources = {
-    --     --       {
-    --     --         name = 'lazydev',
-    --     --         -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-    --     --         group_index = 0,
-    --     --       },
-    --     --       { name = 'nvim_lsp' },
-    --     --       { name = 'luasnip' },
-    --     --       { name = 'path' },
-    --     --     },
-    --     --   }
-    --     -- end,
-    --     config = function()
-    --       local cmp = require 'cmp'
-    --       local luasnip = require 'luasnip'
-    --       luasnip.config.setup {}
-    --
-    --       cmp.setup {
-    --         snippet = {
-    --           expand = function(args)
-    --             luasnip.lsp_expand(args.body)
-    --           end,
-    --         },
-    --         completion = {
-    --           completeopt = 'menu,menuone,noinsert',
-    --           keyword_length = 2, -- Trigger after 2 characters
-    --         },
-    --         window = {
-    --           documentation = require('cmp.config.window').bordered(), -- Show docs
-    --         },
-    --         sorting = {
-    --           comparators = {
-    --             require('cmp.config.compare').exact,
-    --             require('cmp.config.compare').score,
-    --             require('cmp.config.compare').kind,
-    --           },
-    --         },
-    --         mapping = cmp.mapping.preset.insert {
-    --           ['<C-n>'] = cmp.mapping.select_next_item(),
-    --           ['<C-p>'] = cmp.mapping.select_prev_item(),
-    --           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    --           ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    --           ['<C-y>'] = cmp.mapping.confirm { select = true },
-    --           ['<C-Space>'] = cmp.mapping.complete {},
-    --           ['<C-l>'] = cmp.mapping(function()
-    --             if luasnip.expand_or_locally_jumpable() then
-    --               luasnip.expand_or_jump()
-    --             end
-    --           end, { 'i', 's' }),
-    --           ['<C-h>'] = cmp.mapping(function()
-    --             if luasnip.locally_jumpable(-1) then
-    --               luasnip.jump(-1)
-    --             end
-    --           end, { 'i', 's' }),
-    --         },
-    --         sources = {
-    --           { name = 'nvim_lsp' }, -- Prioritize LSP
-    --           { name = 'lazydev', group_index = 0 }, -- Keep for lazydev
-    --           { name = 'luasnip' }, -- Snippets
-    --           { name = 'path', trigger_characters = { '/', '.' } }, -- Contextual paths
-    --         },
-    --       }
-    --     end,
-    -- =======
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
     opts = {
@@ -1104,7 +970,6 @@ require('lazy').setup {
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  -- require 'my_plugins.set_term_bg',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -1112,32 +977,6 @@ require('lazy').setup {
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'custom.plugins' },
-  --
-  -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
-  -- Or use telescope!
-  -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
-  -- you can continue same window with `<space>sr` which resumes last telescope search
-  -- {
-  --   ui = {
-  --     -- If you are using a Nerd Font: set icons to an empty table which will use the
-  --     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-  --     icons = vim.g.have_nerd_font and {} or {
-  --       cmd = '⌘',
-  --       config = '🛠',
-  --       event = '📅',
-  --       ft = '📂',
-  --       init = '⚙',
-  --       keys = '🗝',
-  --       plugin = '🔌',
-  --       runtime = '💻',
-  --       require = '🌙',
-  --       source = '📄',
-  --       start = '🚀',
-  --       task = '📌',
-  --       lazy = '💤 ',
-  --     },
-  --   },
-  -- },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
