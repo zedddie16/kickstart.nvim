@@ -994,6 +994,20 @@ require('lazy').setup {
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
+  -- battery info plugin
+  {
+    'justinhj/battery.nvim',
+    config = function()
+      require('battery').setup {
+        update_rate_seconds = 120,
+        show_percent = true,
+        show_plugged_icon = true,
+        show_status_when_no_battery = false,
+        show_unplugged_icon = false,
+        vertical_icons = true,
+      }
+    end,
+  },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
@@ -1025,6 +1039,15 @@ require('lazy').setup {
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
         return '%2l:%-2v'
+      end
+
+      -- show battery info in fileinfo field
+      local original_fileinfo = statusline.section_fileinfo
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_fileinfo = function(args)
+        local original = original_fileinfo(args)
+        local battery = require('battery').get_status_line()
+        return original .. ' ' .. battery
       end
 
       -- ... and there is more!
