@@ -142,6 +142,10 @@ vim.keymap.set('n', '<right>', '<cmd>echo "dyracok:c"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "dyracok:c"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "dyracok:c"<CR>')
 
+-- Fix Ctrl+U/D to properly center cursor with scrolloff
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half page and center' })
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half page and center' })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
