@@ -4,6 +4,31 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- VSCode Neovim integration
+if vim.g.vscode then
+  -- Try multiple paths for VSCode Neovim extension
+  local extension_paths = {
+    '~/.cursor/extensions/asvetliakov.vscode-neovim-1.18.22/runtime',
+    '~/.vscode/extensions/asvetliakov.vscode-neovim-1.18.22/runtime',
+    '~/.cursor/extensions/asvetliakov.vscode-neovim-*/runtime',
+    '~/.vscode/extensions/asvetliakov.vscode-neovim-*/runtime'
+  }
+  
+  for _, path in ipairs(extension_paths) do
+    local expanded_path = vim.fn.expand(path)
+    if vim.fn.isdirectory(expanded_path) == 1 then
+      vim.opt.runtimepath:prepend(expanded_path)
+      -- Also add to package.path for Lua modules
+      package.path = package.path .. ';' .. expanded_path .. '/lua/?.lua'
+      package.path = package.path .. ';' .. expanded_path .. '/lua/?/init.lua'
+      break
+    end
+  end
+  
+  -- Skip heavy plugins when in VSCode
+  vim.g.vscode_neovim = true
+end
+
 -- some neovide settings :з
 if vim.g.neovide == true then
   vim.api.nvim_set_keymap('n', '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>', { silent = true })
