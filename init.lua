@@ -11,9 +11,9 @@ if vim.g.vscode then
     '~/.cursor/extensions/asvetliakov.vscode-neovim-1.18.22/runtime',
     '~/.vscode/extensions/asvetliakov.vscode-neovim-1.18.22/runtime',
     '~/.cursor/extensions/asvetliakov.vscode-neovim-*/runtime',
-    '~/.vscode/extensions/asvetliakov.vscode-neovim-*/runtime'
+    '~/.vscode/extensions/asvetliakov.vscode-neovim-*/runtime',
   }
-  
+
   for _, path in ipairs(extension_paths) do
     local expanded_path = vim.fn.expand(path)
     if vim.fn.isdirectory(expanded_path) == 1 then
@@ -24,7 +24,7 @@ if vim.g.vscode then
       break
     end
   end
-  
+
   -- Skip heavy plugins when in VSCode
   vim.g.vscode_neovim = true
 end
@@ -420,6 +420,9 @@ require('lazy').setup {
 
       -- my custom binds
       vim.keymap.set('n', '<leader>st', builtin.colorscheme, { desc = '[S]earch [T]hemes' })
+      vim.keymap.set('n', '<leader>sq', function()
+        vim.cmd 'TodoQuickFix'
+      end, { desc = '[S]earch Todos [Q]uick Fix' })
 
       -- Slightly advanced example of overriding default behavior and themescheme
       vim.keymap.set('n', '<leader>/', function()
@@ -900,9 +903,14 @@ require('lazy').setup {
     end,
   },
 
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      signs = false,
+    },
+  },
   -- battery info plugin
   {
     'justinhj/battery.nvim',
